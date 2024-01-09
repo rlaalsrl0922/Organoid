@@ -16,9 +16,9 @@ def main(args):
     td = torch.load('C:/Users/minki.kim/Desktop/org/extractor/ctranspath.pth')
     feature_extractor.load_state_dict(td['model'], strict=True)
 
-    print(f"Before change extractor n(param){sum(p.numel() for p in model.parameters())}")
+    print(f"Before change extractor n(param) : {sum(p.numel() for p in model.parameters())}")
     model.feature_extractor = feature_extractor
-    print(f"After changed extractor n(param):{sum(p.numel() for p in model.parameters())}")
+    print(f"After changed extractor n(param) : {sum(p.numel() for p in model.parameters())}")
 
 
     for (k1, v1), (k2, v2) in zip(model.feature_extractor.state_dict().items(), feature_extractor.state_dict().items()):
